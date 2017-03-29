@@ -1,0 +1,38 @@
+info:
+  component: Web Composer
+  
+endpoints:
+  restart:
+    enabled: true
+  shutdown:
+    enabled: true
+  health:
+    sensitive: false
+
+zuul:
+  routes:
+    header:
+      url: http://localhost:9000/header/
+    footer:
+      url: http://localhost:9000/footer/
+    nav:
+      url: http://localhost:9000/nav/
+    test:
+      url: http://localhost:9000/test/
+    
+#zuul:
+#    routes:
+#        movies:
+#            url: http://localhost:9000
+
+#ribbon:
+#    eureka:
+#        enabled: false
+
+logging:
+  level:
+    ROOT: INFO
+    net.acesinc: DEBUG
+
+server:
+  port: 8080
