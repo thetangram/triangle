@@ -2,3 +2,9 @@ language: java
 
 jdk:
 - oraclejdk8
+
+install:
+  - git clone https://github.com/thetangram/triangle.git
+  - mvn -f triangle/pom.xml clean install
+  - rm -rf ./triangle
+
