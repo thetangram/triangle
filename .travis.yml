@@ -3,8 +3,13 @@ language: java
 jdk:
 - oraclejdk8
 
+before_install:
+  - sudo apt-get -qq update
+  - sudo apt-get install -y unzip
+
 install:
-  - git clone https://github.com/thetangram/triangle.git
-  - mvn -f triangle/pom.xml clean install
-  - rm -rf ./triangle
+  - wget https://github.com/thetangram/triangle/archive/master.zip
+  - unzip master.zip -d .
+  - mvn -f ./triangle-master/pom.xml clean install
+  - rm -rf ./triangle-master
 
