@@ -20,4 +20,3 @@ Build
 -----
 
     $ ./mvnw clean verify [source:jar] [javadoc:jar]
-
