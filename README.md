@@ -1,7 +1,7 @@
 Triangle 
 ========
 
-[![Build Status](https://travis-ci.org/thetangram/triangle.svg?branch=master)](https://travis-ci.org/jomoespe/triangle)
+[![Build Status](https://travis-ci.org/thetangram/triangle.svg?branch=master)](https://travis-ci.org/thetangram/triangle)
 
 Triangle is the first approach (figure) of *edge side composition*, based on [Netflix Zuul](https://github.com/Netflix/zuul) + [Convergent UI](https://github.com/Netflix/zuul).
 
