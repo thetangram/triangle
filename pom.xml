@@ -58,7 +58,7 @@
         <dependency>
             <groupId>net.acesinc</groupId>
             <artifactId>convergent-ui</artifactId>
-            <version>1.0.4</version>
+            <version>1.1.2.THETANGRAM-SNAPSHOT</version>
         </dependency>
 	
         <dependency>
