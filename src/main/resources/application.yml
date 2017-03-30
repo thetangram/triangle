@@ -1,5 +1,8 @@
 info:
-  component: Web Composer
+  component: Triangle Web Composer
+
+server:
+  port: 8080
   
 endpoints:
   restart:
@@ -8,31 +11,52 @@ endpoints:
     enabled: true
   health:
     sensitive: false
+  metrics:
+    enabled: true
+  env:
+    enabled: true
+
+zuul.debug.request: true
 
 zuul:
+  ignoredPatterns: /health,/routes,/trace,/metrics,/env
   routes:
     header:
-      url: http://localhost:9000/header/
+      path: "/header/index.html"
+      stripPrefix: false
+      serviceId: components
     footer:
-      url: http://localhost:9000/footer/
+      path: "/footer/index.html"
+      stripPrefix: false
+      serviceId: components
     nav:
-      url: http://localhost:9000/nav/
+      path: "/nav/index.html"
+      stripPrefix: false
+      serviceId: components
     test:
-      url: http://localhost:9000/test/
-    
-#zuul:
-#    routes:
-#        movies:
-#            url: http://localhost:9000
+      path: "/test/index.html"
+      stripPrefix: false
+      serviceId: components
 
-#ribbon:
-#    eureka:
-#        enabled: false
+components:
+  ribbon:
+    listOfServers: localhost:9000
+    
+ribbon:
+  ReadTimeout: 100000
+  ConnectTimeout: 100000
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          strategy: THREAD
+          thread:
+            timeoutInMilliseconds: 100000
 
 logging:
   level:
     ROOT: INFO
     net.acesinc: DEBUG
-
-server:
-  port: 8080
+    org.apache.http.headers: DEBUG
