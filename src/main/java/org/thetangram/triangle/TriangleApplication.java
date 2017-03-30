@@ -3,6 +3,7 @@ package org.thetangram.triangle;
 import static org.springframework.boot.SpringApplication.run;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -17,7 +18,7 @@ public class TriangleApplication {
 	}
     
     @Bean
-    public RestTemplate restTemplate() {
-        return new RestTemplate();
+    public RestTemplate restTemplate(RestTemplateBuilder builder) {
+        return builder.build();
     }    
 }
